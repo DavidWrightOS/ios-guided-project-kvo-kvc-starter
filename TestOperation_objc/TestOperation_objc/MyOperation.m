@@ -39,6 +39,10 @@
     return [NSSet setWithObjects:@"internalFinished", nil];
 }
 
++ (NSSet<NSString *> *)keyPathsForValuesAffectingExecuting {
+    return [NSSet setWithObject:@"internalExecuting"];
+}
+
 //KVO-compliant
 - (void)setInternalFinished:(BOOL)internalFinished {
     if (internalFinished != _internalFinished) { // Prevent unnecessary notifications

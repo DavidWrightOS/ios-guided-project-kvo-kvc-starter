@@ -67,15 +67,15 @@
     
     NSLog(@"%@", self.hrController);
     
-    NSString *key = @"name";
+    NSString *key = @"privateName";
     
-    NSString *value = [craig valueForKey:key];
+    NSString *value = [craig valueForKey:key]; // Can't use craig.privateName
     NSLog(@"value for key %@: %@", key, value);
     
-    for (id employee in engineering.employees) {
-        NSString *value = [employee valueForKey:key];
-        NSLog(@"value for key %@: %@", key, value);
-    }
+//    for (id employee in engineering.employees) {
+//        NSString *value = [employee valueForKey:key];
+//        NSLog(@"value for key %@: %@", key, value);
+//    }
     
 }
 

@@ -114,6 +114,10 @@
     NSArray *sortedEmployees = [employees sortedArrayUsingDescriptors:@[nameSortDescriptor,
                                                                         salarySortDescriptor]];
     NSLog(@"Sorted: %@", sortedEmployees);
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", @"John"];
+    NSArray *filteredEmployees = [employees filteredArrayUsingPredicate:predicate];
+    NSLog(@"Filtered: %@", filteredEmployees);
 }
 
 @end

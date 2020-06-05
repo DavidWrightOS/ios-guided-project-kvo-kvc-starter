@@ -66,7 +66,11 @@
 
 - (void)addTip:(LSITip *)aTip
 {
+    [self willChangeValueForKey:@"tipCount"];
+    [self willChangeValueForKey:@"tips"];
     [_internalTips addObject:aTip];
+    [self didChangeValueForKey:@"tips"];
+    [self didChangeValueForKey:@"tipCount"];
 }
 
 @end

@@ -90,7 +90,7 @@
 //    NSArray *salaries = [employees valueForKeyPath:key];
 //    NSLog(@"Salaries: %@", salaries);
     
-    // Optional check to make sure the KVC operation is successful, and handle the exception if it fails
+    // (optional) check to make sure the KVC operation is successful, and handle the exception if it fails
     @try {
         NSArray *directSalaries = [self valueForKeyPath:@"hrController.departments.@unionOfArrays.employees.salary"];
         NSLog(@"Direct Salaries: %@", directSalaries);
@@ -103,8 +103,11 @@
     NSLog(@"Avg Salary: %@", [employees valueForKeyPath:@"@avg.salary"]);
     NSLog(@"Max Salary: %@", [employees valueForKeyPath:@"@max.salary"]);
     NSLog(@"Min Salary: %@", [employees valueForKeyPath:@"@min.salary"]);
-    NSLog(@"Number of Salaries: %@", [employees valueForKeyPath:@"@count.salary"]);
-}
+    NSLog(@"Number of Salaries: %@", [employees valueForKeyPath:@"@min.salary"]);
 
+    [engineering setValue:@"John" forKey:@"manager.name"];
+    [marketing setValue:@"John" forKey:@"manager.name"];
+    NSLog(@"New Manager's name: %@", engineering.manager.name);
+}
 
 @end

@@ -78,10 +78,10 @@
 //    value = [philSchiller valueForKey:key];
 //    NSLog(@"after: %@: %@", key, value);
     
-    [engineering addEmployee:philSchiller]; // Phil is now part of the engineering department
+    [engineering addEmployee:philSchiller]; // Phil is now in both departments
     
     // Command + Shift + O, search for "KeyValueOperator" to see a list of all the KVC operators
-    NSString *keyPath = @"departments.@distinctUnionOfArrays.employees.salary";
+    NSString *keyPath = @"departments.@distinctUnionOfArrays.employees";
     
     NSArray *employees = [self.hrController valueForKeyPath:keyPath];
     NSLog(@"Employees: %@", employees);
@@ -98,15 +98,15 @@
         NSLog(@"Got an exception: %@", exception);
     }
     
-    [craig setValue:@(42 + 5) forKey:@"salary"];
+    [craig setValue:@"700" forKey:@"salary"];
     
     NSLog(@"Avg Salary: %@", [employees valueForKeyPath:@"@avg.salary"]);
     NSLog(@"Max Salary: %@", [employees valueForKeyPath:@"@max.salary"]);
     NSLog(@"Min Salary: %@", [employees valueForKeyPath:@"@min.salary"]);
-    NSLog(@"Number of Salaries: %@", [employees valueForKeyPath:@"@min.salary"]);
-
-    [engineering setValue:@"John" forKey:@"manager.name"];
-    [marketing setValue:@"John" forKey:@"manager.name"];
+    NSLog(@"Number of Salaries: %@", [employees valueForKeyPath:@"@count.salary"]);
+    
+    [engineering setValue:@"John" forKeyPath:@"manager.name"];
+    [marketing setValue:@"John" forKeyPath:@"manager.name"];
     NSLog(@"New Manager's name: %@", engineering.manager.name);
     
     NSSortDescriptor *nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
@@ -118,6 +118,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", @"John"];
     NSArray *filteredEmployees = [employees filteredArrayUsingPredicate:predicate];
     NSLog(@"Filtered: %@", filteredEmployees);
+
 }
 
 @end

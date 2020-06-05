@@ -67,6 +67,15 @@
     
     NSLog(@"%@", self.hrController);
     
+    NSString *key = @"name";
+    
+    NSString *value = [craig valueForKey:key];
+    NSLog(@"value for key %@: %@", key, value);
+    
+    for (id employee in engineering.employees) {
+        NSString *value = [employee valueForKey:key];
+        NSLog(@"value for key %@: %@", key, value);
+    }
     
 }
 

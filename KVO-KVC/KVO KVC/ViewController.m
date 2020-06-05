@@ -72,10 +72,12 @@
     NSString *value = [craig valueForKey:key]; // Can't use craig.privateName
     NSLog(@"value for key %@: %@", key, value);
     
-//    for (id employee in engineering.employees) {
-//        NSString *value = [employee valueForKey:key];
-//        NSLog(@"value for key %@: %@", key, value);
-//    }
+    value = [philSchiller valueForKey:key];
+    NSLog(@"before: %@: %@", key, value);
+    [philSchiller setValue:@"Awesome Phil" forKey:key];
+    value = [philSchiller valueForKey:key];
+    NSLog(@"after: %@: %@", key, value);
+    
     
 }
 

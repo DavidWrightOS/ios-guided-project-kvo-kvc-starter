@@ -72,7 +72,13 @@ void *KVOContext = &KVOContext;
     if (stopwatch != _stopwatch) {
         
         // willSet
-		// TODO: Cleanup KVO - Remove Observers
+        [_stopwatch removeObserver:self
+                        forKeyPath:@"running"
+                           context:KVOContext];
+        
+        [_stopwatch removeObserver:self
+                        forKeyPath:@"elapsedTime"
+                           context:KVOContext];
 
         _stopwatch = stopwatch;
         
@@ -111,7 +117,8 @@ void *KVOContext = &KVOContext;
 
 
 - (void)dealloc {
-	// TODO: Stop observing KVO (otherwise it will crash randomly)
+	// Stop observing KVO (otherwise it will crash randomly when the VC is no longer on screen, for instance)
+    self.stopwatch = nil;
     
 }
 

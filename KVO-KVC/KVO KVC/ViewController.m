@@ -108,6 +108,12 @@
     [engineering setValue:@"John" forKey:@"manager.name"];
     [marketing setValue:@"John" forKey:@"manager.name"];
     NSLog(@"New Manager's name: %@", engineering.manager.name);
+    
+    NSSortDescriptor *nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    NSSortDescriptor *salarySortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"salary" ascending:NO];
+    NSArray *sortedEmployees = [employees sortedArrayUsingDescriptors:@[nameSortDescriptor,
+                                                                        salarySortDescriptor]];
+    NSLog(@"Sorted: %@", sortedEmployees);
 }
 
 @end

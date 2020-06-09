@@ -48,14 +48,20 @@
 
 - (NSArray<LSIEmployee *> *)allEmployees {
     
-    NSMutableArray *employees = [NSMutableArray array];
+    // MARK: Standard implementation
     
-    for (LSIDepartment *department in self.departments) {
-        for (LSIEmployee *employee in department.employees) {
-            [employees addObject:employee];
-        }
-    }
-    return [employees copy];
+//    NSMutableArray *employees = [NSMutableArray array];
+//
+//    for (LSIDepartment *department in self.departments) {
+//        for (LSIEmployee *employee in department.employees) {
+//            [employees addObject:employee];
+//        }
+//    }
+//    return [employees copy];
+    
+    // MARK: Alternative implementation
+    // Uses a KVC collection operator
+    return [self valueForKeyPath:@"departments.@distinctUnionOfArrays.employees"];
 }
 
 

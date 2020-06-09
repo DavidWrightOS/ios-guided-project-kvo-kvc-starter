@@ -67,23 +67,8 @@
     
 //    NSLog(@"%@", self.hrController);
     
-    NSLog(@"%@", craig.name); // dot syntax: checked by compiler
-    NSLog(@"%@", [craig name]); // method call: checked by compiler
-    NSLog(@"%@", [craig valueForKey:@"name"]); // not checked by compiler for being a valid key path
-    
-    [craig setValue:@"Hair Force Craig" forKey:@"name"]; // @"nameee" crashes the app - it is not key value coding-compliant
-    NSLog(@"%@", craig.name);
-    
-    // System will search for _likesLongWalksOnBeach and likesLongWalksOnBeach
-    NSLog(@"Long walks: %@", [craig valueForKey:@"likesLongWalksOnBeach"]);
-    
-    NSLog(@"%@", self.hrController.allEmployees);
-    
-    
-    
-    
-    
-    
+    // MARK: - Guided Project
+    /*
     
 //    NSString *key = @"privateName";
 //
@@ -136,7 +121,26 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", @"John"];
     NSArray *filteredEmployees = [employees filteredArrayUsingPredicate:predicate];
     NSLog(@"Filtered: %@", filteredEmployees);
-
+    */
+    
+    // MARK: - Guided Project: Round 2
+    
+    NSLog(@"%@", craig.name); // dot syntax: checked by compiler
+    NSLog(@"%@", [craig name]); // method call: checked by compiler
+    NSLog(@"%@", [craig valueForKey:@"name"]); // not checked by compiler for being a valid key path
+    
+    [craig setValue:@"Hair Force Craig" forKey:@"name"]; // @"nameee" crashes the app - it is not key value coding-compliant
+    NSLog(@"%@", craig.name);
+    
+    // System will search for _likesLongWalksOnBeach and likesLongWalksOnBeach
+    NSLog(@"Long walks: %@", [craig valueForKey:@"likesLongWalksOnBeach"]);
+    
+    NSLog(@"%@", self.hrController.allEmployees);
+    
+    
+    
+    
+    
 }
 
 @end

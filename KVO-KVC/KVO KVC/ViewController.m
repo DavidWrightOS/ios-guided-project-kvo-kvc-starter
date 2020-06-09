@@ -67,6 +67,17 @@
     
 //    NSLog(@"%@", self.hrController);
 //
+    
+    NSLog(@"%@", craig.name); // dot syntax: checked by compiler
+    NSLog(@"%@", [craig name]); // method call: checked by compiler
+    NSLog(@"%@", [craig valueForKey:@"name"]); // not checked by compiler for being a valid key path
+    
+    [craig setValue:@"Hair Force Craig" forKey:@"name"]; // @"nameee" crashes the app - it is not key value coding-compliant
+    NSLog(@"%@", craig.name);
+    
+    // System will search for _likesLongWalksOnBeach and likesLongWalksOnBeach
+    NSLog(@"Long walks: %@", [craig valueForKey:@"likesLongWalksOnBeach"]);
+    
 //    NSString *key = @"privateName";
 //
 //    NSString *value = [craig valueForKey:key]; // Can't use craig.privateName

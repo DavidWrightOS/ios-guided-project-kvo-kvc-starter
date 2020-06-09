@@ -8,11 +8,18 @@
 
 #import "LSIEmployee.h"
 
-@interface LSIEmployee ()
+// MARK: Class extension
+
+@interface LSIEmployee () {
+    BOOL _likesLongWalksOnBeach;
+}
 
 @property (nonatomic, copy) NSString *privateName;
 
 @end
+
+
+// MARK: Class implementation
 
 @implementation LSIEmployee
 

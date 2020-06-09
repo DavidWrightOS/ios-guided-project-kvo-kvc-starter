@@ -47,7 +47,15 @@
 }
 
 - (NSArray<LSIEmployee *> *)allEmployees {
-    return nil;
+    
+    NSMutableArray *employees = [NSMutableArray array];
+    
+    for (LSIDepartment *department in self.departments) {
+        for (LSIEmployee *employee in department.employees) {
+            [employees addObject:employee];
+        }
+    }
+    return [employees copy];
 }
 
 

@@ -25,7 +25,17 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%@, Title: %@, Salary: %li", self.name, self.jobTitle, self.salary];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle = NSNumberFormatterCurrencyStyle; // $ (current Locale)
+    formatter.allowsFloats = NO;
+//    formatter.locale = [NSLocale localeWithLocaleIdentifier:@"de"];
+    formatter.usesGroupingSeparator = YES; //3,000
+    
+    // These are equivalent:
+    // [NSNumber numberWithInteger:self.salary];
+    // @(self.salary);
+    NSString *salaryString = [formatter stringFromNumber:@(self.salary)]; // NSInteger (primitive) -> NSNumber (object)
+    return [NSString stringWithFormat:@"%@, Title: %@, Salary: %@", self.name, self.jobTitle, salaryString];
 }
 
 @end

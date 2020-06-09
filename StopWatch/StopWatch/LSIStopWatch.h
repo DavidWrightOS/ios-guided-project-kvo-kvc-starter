@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LSIStopWatch : NSObject
 
-@property (nonatomic, readonly, getter=isRunning) BOOL running;
+@property (nonatomic, readonly, getter=isRunning) BOOL running; // getter=isRunning -> renames the getter method from "running" to "isRunning"
 @property (nonatomic, readonly) NSTimeInterval elapsedTime; // Elapsed time in seconds.
 
 - (void)start;

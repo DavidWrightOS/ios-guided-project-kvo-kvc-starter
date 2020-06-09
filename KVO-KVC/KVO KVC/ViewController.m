@@ -66,7 +66,6 @@
     self.hrController = controller;
     
 //    NSLog(@"%@", self.hrController);
-//
     
     NSLog(@"%@", craig.name); // dot syntax: checked by compiler
     NSLog(@"%@", [craig name]); // method call: checked by compiler
@@ -77,6 +76,14 @@
     
     // System will search for _likesLongWalksOnBeach and likesLongWalksOnBeach
     NSLog(@"Long walks: %@", [craig valueForKey:@"likesLongWalksOnBeach"]);
+    
+    NSLog(@"%@", self.hrController.allEmployees);
+    
+    
+    
+    
+    
+    
     
 //    NSString *key = @"privateName";
 //
